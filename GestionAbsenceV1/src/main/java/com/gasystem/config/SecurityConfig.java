@@ -36,10 +36,12 @@ public PasswordEncoder passwordEncoder() {
 protected void configure(HttpSecurity http) throws Exception {
 
 		
-		  http.authorizeRequests().antMatchers("/", "/css/**",
-		  "/webjars/**").permitAll().anyRequest().authenticated().and().formLogin()
-		  .loginPage("/").permitAll().defaultSuccessUrl("/profile").and().logout().
-		  logoutSuccessUrl("/");
+		/*
+		 * http.authorizeRequests().antMatchers("/", "/css/**",
+		 * "/webjars/**").permitAll().anyRequest().authenticated().and().formLogin()
+		 * .loginPage("/").permitAll().defaultSuccessUrl("/profile").and().logout().
+		 * logoutSuccessUrl("/");
+		 */
 		 
 		
 }
