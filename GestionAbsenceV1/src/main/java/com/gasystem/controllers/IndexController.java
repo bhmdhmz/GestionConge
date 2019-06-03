@@ -10,6 +10,6 @@ public class IndexController {
 	public String showIndex()
 	{
 		return "index";
-	}
+}
 
 }

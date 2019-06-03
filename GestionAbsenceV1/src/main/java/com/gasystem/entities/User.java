@@ -27,7 +27,7 @@ public class User{
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name="USER_ROLES",joinColumns = {
-	@JoinColumn(name="USER_ID",referencedColumnName = "username")},
+	@JoinColumn(name="USER_USERNAME",referencedColumnName = "username")},
 	inverseJoinColumns = {@JoinColumn(name="ROLE_NAME",referencedColumnName = "roleName")})
 	private List<RoleUser> roles;
 	
