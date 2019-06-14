@@ -47,9 +47,9 @@ public class UserService {
 	}
 	
 	
-	public User findUser(Integer idUser)
+	public User findUser(String usernameUser)
 	{
-		return userReprository.findOne(idUser);
+		return userReprository.findOne(usernameUser);
 	}
 	
 	

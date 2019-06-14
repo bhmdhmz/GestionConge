@@ -20,8 +20,11 @@ layout:decorate="~{fragments/main_layout}">
 <hr>
 <div class="container bootstrap snippet">
     <div class="row">
-  		<div class="col-sm-10"><h2>Nom Prénom</h2><h2><span class="badge badge-pill badge-success">Actif</span></h2></div>
-    	<div class="col-sm-2"><button type="button" class="btn btn-success">Réaliser nouvelle demande d'absence</button></div>
+  		<div class="col-sm-10" ><h2><span th:text="${userconnecte.civiliteProfil}"></span>
+  		<span th:text="${#strings.toUpperCase(userconnecte.nomProfil)}"></span>
+  		<span th:text="${#strings.capitalize(userconnecte.prenomProfil)}"></span>
+  		</h2><h2><span class="badge badge-pill badge-success">Actif</span></h2></div>
+    	<div class="col-sm-2"><a class="btn btn-success" th:href="@{/ajoutcng}" >Réaliser nouvelle <br> demande de congé</a></div>
     </div>
 
 
@@ -47,41 +50,41 @@ layout:decorate="~{fragments/main_layout}">
         <th></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody th:each="userconnected:${userconnecte}">
       <tr>
-        <td>A Rejoint le </td>
+        <th>A Rejoint le </th>
         <td></td>
-         <td>20/12/2014</td>
-      </tr>
-      <tr>
-        <td>Fonction</td>
-        <td></td>
-        <td>Technique</td>
+         <td th:text="${#dates.format(userconnected.dateRecrutement,'dd-MM-yyy')}"></td>
       </tr>
       <tr>
-        <td>E-mail</td>
+        <th>Fonction</th>
         <td></td>
-        <td>adil@example.com</td>
+        <td th:text="${userconnected.service.nom}"></td>
+      </tr>
+      <tr>
+        <th>E-mail</th>
+        <td></td>
+        <td th:text="${userconnected.emailProfil}"></td>
       </tr>
        <tr>
-        <td>Mon Solde</td>
+        <th>Mon Solde</th>
         <td></td>
-        <td>22</td>
+        <td th:text="${userconnected.soldeProfil}"></td>
       </tr>
        <tr>
-        <td>Mobile</td>
+        <th>Mobile</th>
         <td></td>
-        <td>+2126 28 27 91 30</td>
+        <td th:text="${userconnected.telProfil}"></td>
       </tr>
        <tr>
-        <td>Adresse</td>
+        <th>Adresse</th>
         <td></td>
-        <td>22 RUE M5</td>
+        <td th:text="${userconnected.adresseProfil}"></td>
       </tr>
        <tr>
-        <td>Date de Naissance</td>
+        <th>Date de Naissance</th>
         <td></td>
-        <td>27/09/1996</td>
+        <td th:text="${#dates.format(userconnected.dateNaissance,'dd-MM-yyy')}"></td>
       </tr>
     </tbody>
   </table>
@@ -89,6 +92,6 @@ layout:decorate="~{fragments/main_layout}">
           
      
    </div><!--/container_main-->                                                    
-
+</div>
 </body>
 </html>

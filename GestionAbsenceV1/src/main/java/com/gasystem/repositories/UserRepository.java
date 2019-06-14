@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.gasystem.entities.User;
 
 
-public interface UserRepository  extends JpaRepository<User, Integer> {
+public interface UserRepository  extends JpaRepository<User, String> {
 
 	List<User> findByService(Service service);
 

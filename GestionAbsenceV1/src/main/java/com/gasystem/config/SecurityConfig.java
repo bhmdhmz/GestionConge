@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			auth.jdbcAuthentication().dataSource(dataSource)
 			.usersByUsernameQuery("select username as principal, password as credentials, true from user where username=?")
 			.authoritiesByUsernameQuery("select user_username as principal, role_name as role from user_roles where user_username=?")
-			.rolePrefix("role_");
+			.rolePrefix("ROLE_");
 		}
 	
 @Bean
@@ -37,10 +37,10 @@ public PasswordEncoder passwordEncoder() {
 protected void configure(HttpSecurity http) throws Exception {
 
 		
-		  http.authorizeRequests().antMatchers("/login", "/css/**",
-		  "/webjars/**").permitAll().anyRequest().authenticated().and().formLogin()
-		  .loginPage("/login").permitAll().defaultSuccessUrl("/profile").and().logout()
-		  . logoutSuccessUrl("/login");
+		  http.authorizeRequests().antMatchers("/login","/images/**", "/css/**",
+		  "/webjars/**").permitAll().anyRequest().authenticated()
+		  .and().formLogin().loginPage("/login").permitAll()
+		  .defaultSuccessUrl("/profile").and().logout().logoutSuccessUrl("/login");
 		 
 		 
 		 

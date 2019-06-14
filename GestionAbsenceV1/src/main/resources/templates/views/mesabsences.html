@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{fragments/main_layout}">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<head>
+<title>Liste de Vos Congés</title>
+<style type="text/css">
+.offser-lg-0 {
+margin-left : 0;
+}
+
+.col-md-12 {
+-ms-flex : 0 0 100%;
+flex : 0 0 100%;
+max-width : 100%;
+}
+</style>
+</head>
+
+<body>
+<div layout:fragment="content">
+<div>
+<div class="container">
+<div class="row">
+<div class="col-md-12 offset-lg-0">
+<h4 style="margin-left: 30px;"> ·   Vos congé en attente :</br></h4>
+<hr style="width: 90%;margin: 10px;margin-right: 30px;margin-left: 30;" >
+
+<div class="card">
+			<div class="card card-body">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Date Soumis</th>
+							<th>Date Début</th>
+							<th>Date Fin</th>
+							<th>Type de Conge</th>
+							<th>Statut</th>
+							<th>Commentaire</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="demandecng:${lastdemandescng}">
+							<td th:text="${demandecng.idDemande}"></td>
+							<td th:text="${#dates.format(demandecng.dateSoumis,'dd-MM-yyy')}"></td>
+							<td th:text="${#dates.format(demandecng.dateDebut,'dd-MM-yyy')}"></td>
+							<td th:text="${#dates.format(demandecng.dateFin,'dd-MM-yyy')}"></td>
+							<td th:text="${demandecng.typeConge}"></td>
+							<td th:text="${demandecng.statutDemande}"></td>
+							<td th:text="${demandecng.commentaire}"></td>
+							<td><a th:href="www.google.com" class="btn btn-dark">Annuler</a></td>
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+</div>
+
+<hr style="width: 90%;margin: 10px;margin-right: 30px;margin-left: 30;" >
+</div>
+
+<div class="col-md-12 offset-lg-0">
+<h4 style="margin-left: 30px;">·   Liste des congés :</br></h4>
+<hr style="width: 90%;margin: 10px;margin-right: 30px;margin-left: 30;" >
+
+<div class="card">
+			<div class="card card-body">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Date Soumis</th>
+							<th>Date Début</th>
+							<th>Date Fin</th>
+							<th>Type de Conge</th>
+							<th>Statut</th>
+							<th>Commentaire</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="alldemandecng:${alldemandescng}">
+							<td th:text="${alldemandecng.idDemande}"></td>
+							<td th:text="${#dates.format(alldemandecng.dateSoumis,'dd-MM-yyy')}"></td>
+							<td th:text="${#dates.format(alldemandecng.dateDebut,'dd-MM-yyy')}"></td>
+							<td th:text="${#dates.format(alldemandecng.dateFin,'dd-MM-yyy')}"></td>
+							<td th:text="${alldemandecng.typeConge}"></td>
+							<td th:text="${alldemandecng.statutDemande}"></td>
+							<td th:text="${alldemandecng.commentaire}"></td>
+						</tr>
+					</tbody>
+
+				</table>
+				
+				
+			</div>
+		</div>
+</div>
+
+<hr style="width: 90%;margin: 10px;margin-right: 30px;margin-left: 30;" >
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

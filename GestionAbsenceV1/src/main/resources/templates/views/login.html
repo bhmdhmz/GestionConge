@@ -2,33 +2,37 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-<title>Register Form</title>
+<title>Login</title>
+<link href="/css/stylelogin.css" rel="stylesheet" type="text/css" media="all"/>
+<!-- Custom Theme files -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="Plans & Pricing Tables Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<!--web-fonts-->
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+<!--web-fonts-->
 </head>
 <body>
-
-	<div layout:fragment="content" class="container mySpace">
-	<div class="alert alert-danger" th:if="${param.error}">
-	
-     <h2>Invalid Email or Password</h2>	
-	</div>
-		<form th:action="@{/login}"  method="post">
-
-			<div class="form-group">
-				<label for="email" class="form-control-label">Email</label> <input
-					type="text" class="form-control"  id="username" name="username" />
-			
+			<div class="main">
+				<div class="login">
+					<div class="login-top">
+						<img src="images/p.png">
+					</div>
+					<h1>Connectez-vous</h1>
+					<div class="alert alert-danger" th:if="${param.error}">
+    				 <h2>Invalid Email or Password</h2>	
+					</div>
+					<div class="login-bottom">
+					<form th:action="@{/login}" method="post">
+						<input type="text" id="username" name="username" placeholder="Username" required=" ">					
+						<input type="password" id="password" name="password" class="password" placeholder="Password" required=" ">						
+						<input type="submit" value="login">
+					</form>
+					</div>
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="password" class="form-control-label">Password</label> 
-				<input type="password" class="form-control" 
-					id="password"  name="password"/>
-				
 
-			</div>
-			
-			<input type="submit" value="Submit" class="btn btn-primary" />
 
-		</form>
-	</div>
 </body>
 </html>

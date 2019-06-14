@@ -3,6 +3,7 @@ package com.gasystem.services;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.gasystem.entities.Service;
+import com.gasystem.entities.User;
 import com.gasystem.repositories.ServiceRepository;
 
 @org.springframework.stereotype.Service
@@ -19,5 +20,6 @@ public class ServiceService {
 	{
 		return serviceRepository.findOne(idservice);
 	}
+
 	
 }

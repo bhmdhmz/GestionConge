@@ -9,20 +9,20 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       
- <li class="dropdowntwo">
+ <li class="dropdowntwo" sec:authorize="isAuthenticated()">
     <a href="javascript:void(0)" class="dropbtn">Espace Employee</a>
     <div class="dropdowntwo-content">
-      <a href="#">Demander conge</a>
-      <a href="#">Ajouter une Maladie</a>
-      <a href="#">Lister vos conges</a>
+      <a href="/ajoutcng">Demander conge</a>
+      <a href="/ajoutmld">Ajouter une Maladie</a>
+      <a href="/mescngs">Lister vos conges</a>
     </div>
   </li>
   
        <li class="dropdowntwo">
-    <a href="javascript:void(0)" class="dropbtn">Espace Superviseur</a>
+    <a href="javascript:void(0)" class="dropbtn" sec:authorize="hasRole('ROLE_SUPERVISEUR')">Espace Superviseur</a>
     <div class="dropdowntwo-content">
       <a href="#">Lister conges demandes</a>
       <a href="#">Calendrier des conges</a>
@@ -30,7 +30,7 @@
   </li>
   
 	 <li class="dropdowntwo">
-    <a href="javascript:void(0)" class="dropbtn">Espace RH</a>
+    <a href="javascript:void(0)" class="dropbtn" sec:authorize="hasRole('ROLE_RH')">Espace RH</a>
     <div class="dropdowntwo-content">
       <a href="#">Lister conges en attente</a>
       <a href="#">Calendrier des conges</a>
@@ -49,8 +49,12 @@
 
         </a> 
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/profile">Mon Profil</a>
-          <a class="dropdown-item" href="#">Deconnecter</a>
+          <form  id="my_form0" th:action="@{/profile}" method="get" class="dropdown-item">
+          <a class="dropdown-item" href="javascript:{}" onclick="document.getElementById('my_form0').submit(); return false;">Profile</a>
+          </form>
+          <form  id="my_form" th:action="@{/logout}" method="post" class="dropdown-item">
+          <a class="dropdown-item" href="javascript:{}" onclick="document.getElementById('my_form').submit(); return false;">Deconnecter</a>
+          </form>
         </div>
       </li>   
     </ul>

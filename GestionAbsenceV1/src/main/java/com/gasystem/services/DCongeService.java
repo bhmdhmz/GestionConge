@@ -3,6 +3,8 @@ package com.gasystem.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.gasystem.entities.DemandeConge;
@@ -24,5 +26,11 @@ public class DCongeService {
 	{
 		return congeRepository.findCongeByUser(user);
 	}
+	
+	public  List<DemandeConge> findTop3ByUser(User user)
+	{
+		return congeRepository.findLast3ByUser(user.getUsername());
+	}
+	
 	
 }

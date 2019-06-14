@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{fragments/main_layout}">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<head>
+<script type="text/javascript">
+function myfunction(){
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("date_debut").setAttribute("min", today);
+document.getElementById("date_fin").setAttribute("min", today);
+}
+</script>
+
+</head>
+<body onload="myfunction()">
+<div layout:fragment="content">
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8">
+
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Remplir le Formulaire</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="date_debut">Date Début</label>  
+	<div class="col-sm-6">
+    <input type="date" class="form-control input-sm" id="date_debut" name="date_debut" required="">
+    <p class="help-block">Obligatoire</p>
+  </div>
+</div>
+
+
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="date_fin">Date Fin</label>  
+	<div class="col-sm-6">
+    <input type="date" class="form-control input-sm" id="date_fin" name="date_fin" required="">
+    <p class="help-block">Obligatoire</p>
+  </div>
+</div>
+
+<!-- Appended Input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="nbr_jour">Durée de congé</label>
+  <div class="col-md-6">
+    <div class="input-group">
+      <input id="nbr_jour" name="nbr_jour" class="form-control" placeholder="5" type="text" required="">
+      <span class="input-group-addon">Jour(s)</span>
+    </div>
+    <p class="help-block">*Obligatoire</p>
+  </div>
+</div>
+<!-- File Upload -->
+<div class="form-group">
+  <label for="attachement" class="col-md-4 control-label">Attachement</label>
+  <div class="col-md-6">
+  <input type="file" id="attachement" name="attachement" class="form-control">
+  <p class="help-block">Justification </p>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="commentaire_conge">Commentaire</label>
+  <div class="col-md-6">                     
+    <textarea rows="5" class="form-control" id="commentaire_conge" name="commentaire_conge" placeholder="Votre Commentaire ..."></textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="btn_submit"></label>
+  <div class="col-md-4">
+    <input type="submit" id="btn_submit" name="btn_submit" class="btn btn-success" value="Valider">
+  </div>
+</div>
+
+</fieldset>
+</form>           
+
+</div>
+		<div class="col-md-4">
+	<h2>Jours fériés : </h2>
+	<hr style="width: 80%" align="left">
+	<h4>
+·   01/01 : Jour de l'an
+<br>
+·   11/01 : Manifeste de l'Indépendance
+<br>
+·   01/05 : Fête du travail  
+<br>
+·   30/07 : Fête du trône
+<br>
+·   14/08 : Allégeance Oued Eddahab
+<br>
+·   20/08 : La Révolution du Roi et du peuple
+<br>
+·   21/08 : Fête de la jeunesse
+<br>
+·   06/11 : La marche verte
+<br>
+·   18/11 : Fête de l'Indépendance 
+	</h4>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
