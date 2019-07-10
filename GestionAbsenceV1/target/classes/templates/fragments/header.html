@@ -75,7 +75,7 @@ li.dropdowntwo {
   </li>
   
        <li class="dropdowntwo">
-    <a href="javascript:void(0)" class="dropbtn" sec:authorize="hasRole('ROLE_SUPERVISEUR','ROLE_ADMIN')">Espace Superviseur</a>
+    <a href="javascript:void(0)" class="dropbtn" sec:authorize="hasRole('ROLE_SUPERVISEUR')">Espace Superviseur</a>
     <div class="dropdowntwo-content">
       <a href="/congeslist">Lister conges demandes</a>
       <a href="/cngcalendar">Calendrier des conges</a>
@@ -83,7 +83,7 @@ li.dropdowntwo {
   </li>
   
 	 <li class="dropdowntwo">
-    <a href="javascript:void(0)" class="dropbtn" sec:authorize="hasRole('ROLE_RH','ROLE_ADMIN')">Espace RH</a>
+    <a href="javascript:void(0)" class="dropbtn" sec:authorize="hasRole('ROLE_RH')">Espace RH</a>
     <div class="dropdowntwo-content">
       <a href="/congeslist">Lister conges en attente</a>
       <a href="/cngcalendar">Calendrier des conges</a>
