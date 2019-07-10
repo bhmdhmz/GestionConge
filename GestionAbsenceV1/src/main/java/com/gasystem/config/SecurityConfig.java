@@ -38,7 +38,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 		
 		  http.authorizeRequests().antMatchers("/login","/images/**", "/css/**",
-		  "/webjars/**").permitAll().anyRequest().authenticated()
+		  "/webjars/**", "/js/**").permitAll().anyRequest().authenticated()
 		  .and().formLogin().loginPage("/login").permitAll()
 		  .defaultSuccessUrl("/profile").and().logout().logoutSuccessUrl("/login");
 		 

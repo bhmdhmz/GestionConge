@@ -64,4 +64,8 @@ public class UserService {
 		return userReprository.findAll();
 	}
 	
+	public List<User> findAllUserCal()
+	{
+		return userReprository.findAllForCalendar();
+	}
 }

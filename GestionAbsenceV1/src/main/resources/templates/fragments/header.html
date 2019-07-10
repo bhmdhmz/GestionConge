@@ -1,3 +1,56 @@
+<style>
+
+.imagebutton{
+	margin-top : -13px;
+	margin-bottom : -50px;
+	text-align: right;
+	margin-right: 50px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+
+.dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li.dropdowntwo {
+  display: inline-block;
+}
+
+.dropdowntwo-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdowntwo-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdowntwo-content a:hover {background-color: #f1f1f1;}
+
+.dropdowntwo:hover .dropdowntwo-content {
+  display: block;
+}
+
+</style>
+
 <header th:fragment="header">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -22,18 +75,18 @@
   </li>
   
        <li class="dropdowntwo">
-    <a href="javascript:void(0)" class="dropbtn" sec:authorize="hasRole('ROLE_SUPERVISEUR')">Espace Superviseur</a>
+    <a href="javascript:void(0)" class="dropbtn" sec:authorize="hasRole('ROLE_SUPERVISEUR','ROLE_ADMIN')">Espace Superviseur</a>
     <div class="dropdowntwo-content">
-      <a href="#">Lister conges demandes</a>
-      <a href="#">Calendrier des conges</a>
+      <a href="/congeslist">Lister conges demandes</a>
+      <a href="/cngcalendar">Calendrier des conges</a>
     </div>
   </li>
   
 	 <li class="dropdowntwo">
-    <a href="javascript:void(0)" class="dropbtn" sec:authorize="hasRole('ROLE_RH')">Espace RH</a>
+    <a href="javascript:void(0)" class="dropbtn" sec:authorize="hasRole('ROLE_RH','ROLE_ADMIN')">Espace RH</a>
     <div class="dropdowntwo-content">
-      <a href="#">Lister conges en attente</a>
-      <a href="#">Calendrier des conges</a>
+      <a href="/congeslist">Lister conges en attente</a>
+      <a href="/cngcalendar">Calendrier des conges</a>
       <a href="#">Gerer Employees</a>
     </div>
   </li>     
